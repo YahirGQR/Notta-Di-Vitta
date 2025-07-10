@@ -1,0 +1,64 @@
+/* style.css */
+
+/* Ajustes Generales */
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Puedes cambiar la fuente con Google Fonts */
+    padding-top: 56px; /* Para que el contenido no quede debajo de la barra de navegación fija */
+}
+
+/* Sección Hero */
+#hero {
+    /* Fondo con degradado o imagen si deseas */
+    background: linear-gradient(45deg, #007bff, #0056b3); /* Ejemplo de degradado azul */
+    /* background-image: url('../images/background-hero.jpg'); */
+    background-size: cover;
+    background-position: center;
+    color: white; /* Asegura que el texto sea blanco sobre un fondo oscuro */
+}
+
+#hero h1 {
+    font-weight: 700;
+}
+
+#hero .lead {
+    font-size: 1.25rem;
+}
+
+/* Imagen interactiva */
+#libreta-interactiva {
+    transition: transform 0.3s ease-in-out; /* Transición suave para efectos */
+}
+
+/* Ejemplo de efecto hover para la libreta */
+#libreta-interactiva:hover {
+    transform: scale(1.05); /* Ligeramente más grande al pasar el ratón */
+    cursor: pointer;
+}
+
+
+/* Sección de Características */
+#features .card {
+    border: none;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#features .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+#features .card-title {
+    color: #007bff; /* Color del título de la tarjeta */
+}
+
+/* Pie de Página */
+footer .social-icons a {
+    font-size: 1.5rem;
+    transition: color 0.3s ease-in-out;
+}
+
+footer .social-icons a:hover {
+    color: #007bff !important; /* Cambia de color al pasar el ratón */
+}
+
+/* Puedes añadir más estilos personalizados aquí */
