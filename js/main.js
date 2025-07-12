@@ -1,5 +1,3 @@
-// js/main.js
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log('¡La página ha cargado completamente! 🎉');
 
