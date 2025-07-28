@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('¡La página ha cargado completamente! 🎉');
+    console.log('¡La página ha cargado completamente!');
 
     const libretaInteractiva = document.getElementById('libreta-interactiva');
 
