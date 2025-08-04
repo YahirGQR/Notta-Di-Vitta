@@ -1,35 +1,47 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('¡La página ha cargado completamente!');
+    // Crear la escena 3D, cámara y renderizador
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    const container = document.getElementById('libreta-3d');
+    
+    renderer.setSize(container.offsetWidth, container.offsetHeight);
+    container.appendChild(renderer.domElement);
 
-    const libretaInteractiva = document.getElementById('libreta-interactiva');
+    // Añadir una luz
+    const light = new THREE.AmbientLight(0x404040); // Luz suave
+    scene.add(light);
 
-    if (libretaInteractiva) {
-        // Ejemplo simple de interactividad: cambiar la imagen al hacer clic
-        let isFront = true;
-        libretaInteractiva.addEventListener('click', function() {
-            if (isFront) {
-                // Asume que tienes una imagen 'libreta-demo-back.png'
-                libretaInteractiva.src = 'images/libreta-demo-back.png';
-                libretaInteractiva.alt = 'Libreta (vista trasera)';
-            } else {
-                libretaInteractiva.src = 'images/libreta-demo.png';
-                libretaInteractiva.alt = 'Libreta de ejemplo';
-            }
-            isFront = !isFront;
-            console.log('Libreta clicada. Vista actual:', isFront ? 'frontal' : 'trasera');
-        });
+    // Crear un loader para cargar el archivo STL
+    const loader = new THREE.STLLoader();
+    loader.load('http://localhost:3000/3D/Notepad%20web%20-%20NOTEPAD%20BIEN-1.STL', function (geometry) {
+        const material = new THREE.MeshStandardMaterial({ color: 0x007bff });
+        const mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
 
-        // Ejemplo más avanzado: girar con CSS 3D al arrastrar (requiere más imágenes o una librería 3D)
-        // Para un efecto de giro 3D más complejo, podrías considerar:
-        // 1. Una secuencia de 10-20 imágenes de la libreta girando (libreta-spin-01.png, libreta-spin-02.png, etc.)
-        // 2. Usar JavaScript para cambiar la src de la imagen según el movimiento del ratón/arrastre.
-        // Esto sería un poco más complejo que este ejemplo básico.
+        mesh.rotation.x = -Math.PI / 2; // Ajustar orientación si es necesario
+        mesh.position.set(0, 0, 0);
+    });
 
-        // Por ahora, el efecto de hover en CSS ya da un toque.
 
-        // Puedes añadir más funciones interactivas aquí.
+    // Posicionar la cámara
+    camera.position.z = 5;
+
+    // Crear el control de la cámara
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+    // Función de animación
+    function animate() {
+        requestAnimationFrame(animate);
+
+        // Gira el modelo 3D de manera automática
+        scene.children[1].rotation.x += 0.01;
+        scene.children[1].rotation.y += 0.01;
+
+        controls.update(); // Actualizar el control de la cámara
+        renderer.render(scene, camera);
     }
-});
 
-// Puedes añadir otras funciones JavaScript aquí, por ejemplo, para un carrusel manual,
-// validación de formulario, etc.
+    // Iniciar la animación
+    animate();
+});
