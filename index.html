@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Libreta | Notta Di Vitta</title>
+    <title>Notebook | Notta Di Vitta</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Partículas flotantes -->
+    <!-- Floating particles -->
     <div class="particles"></div>
 
     <header>
@@ -28,16 +28,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Inicio</a>
+                            <a class="nav-link active" href="#hero">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="product.html">Producto</a>
+                            <a class="nav-link" href="#features">Features</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">Empresa</a>
+                            <a class="nav-link" href="#company">Company</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contacto</a>
+                            <a class="nav-link" href="#specifications">Specifications</a>
                         </li>
                     </ul>
                 </div>
@@ -51,41 +51,42 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 hero-content" data-aos="fade-right">
                         <h1 class="hero-title">Notta Di Vitta</h1>
-                        <p class="hero-subtitle">La libreta perfecta para capturar tus ideas más brillantes. Diseño elegante, calidad superior.</p>
+                        <p class="hero-subtitle">The perfect notebook to capture your brightest ideas. Elegant design, premium quality.</p>
                         <a href="#features" class="cta-button">
                             <i class="bi bi-arrow-down me-2"></i>
-                            Descubre Más
+                            Discover More
                         </a>
                     </div>
                     <div class="col-lg-6" data-aos="fade-left">
-                        <!-- Contenedor con tabs para alternar entre 3D y Carrusel -->
+                        <!-- Container with tabs to alternate between 3D and Carousel -->
                         <div class="model-container">
                             <ul class="nav nav-tabs model-tabs" id="modelTabs" role="tablist">
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="model3d-tab" data-bs-toggle="tab" data-bs-target="#model3d" type="button" role="tab">
-                                        <i class="bi bi-box me-2"></i>Modelo 3D
+                                        <i class="bi bi-box me-2"></i>3D Model
                                     </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="gallery-tab" data-bs-toggle="tab" data-bs-target="#gallery" type="button" role="tab">
-                                        <i class="bi bi-images me-2"></i>Galería
+                                        <i class="bi bi-images me-2"></i>Gallery
                                     </button>
                                 </li>
                             </ul>
                             
                             <div class="tab-content model-content" id="modelTabsContent">
-                                <!-- Tab del Modelo 3D -->
+                                <!-- 3D Model Tab -->
                                 <div class="tab-pane fade show active" id="model3d" role="tabpanel">
                                     <div id="canvas-container">
                                         <canvas id="three-canvas"></canvas>
                                     </div>
                                     <p class="canvas-note">
                                         <i class="bi bi-mouse me-2"></i>
-                                        Arrastra para rotar • Scroll para zoom
+                                        <span class="desktop-only">Drag to rotate • Scroll to zoom</span>
+                                        <span class="mobile-only">Touch to rotate • Pinch to zoom</span>
                                     </p>
                                 </div>
                                 
-                                <!-- Tab del Carrusel -->
+                                <!-- Carousel Tab -->
                                 <div class="tab-pane fade" id="gallery" role="tabpanel">
                                     <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
                                         <div class="carousel-indicators">
@@ -96,41 +97,41 @@
                                         </div>
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
-                                                <img src="imagenes/libreta-frente.jpg" class="d-block w-100" alt="Vista frontal de la libreta">
+                                                <img src="imagenes/libreta-frente.jpg" class="d-block w-100" alt="Front view of notebook">
                                                 <div class="carousel-caption">
-                                                    <h5>Vista Frontal</h5>
-                                                    <p>Diseño elegante con portada personalizada</p>
+                                                    <h5>Front View</h5>
+                                                    <p>Elegant design with custom cover</p>
                                                 </div>
                                             </div>
                                             <div class="carousel-item">
-                                                <img src="imagenes/libreta-resorte.jpg" class="d-block w-100" alt="Detalle del resorte">
+                                                <img src="imagenes/libreta-resorte.jpg" class="d-block w-100" alt="Spring detail">
                                                 <div class="carousel-caption">
-                                                    <h5>Resorte Premium</h5>
-                                                    <p>Encuadernación resistente y funcional</p>
+                                                    <h5>Premium Spring</h5>
+                                                    <p>Resistant and functional binding</p>
                                                 </div>
                                             </div>
                                             <div class="carousel-item">
-                                                <img src="imagenes/libreta-abierta.jpg" class="d-block w-100" alt="Libreta abierta mostrando páginas">
+                                                <img src="imagenes/libreta-abierta.jpg" class="d-block w-100" alt="Open notebook showing pages">
                                                 <div class="carousel-caption">
-                                                    <h5>Páginas de Calidad</h5>
-                                                    <p>Papel premium para una escritura suave</p>
+                                                    <h5>Quality Pages</h5>
+                                                    <p>Premium paper for smooth writing</p>
                                                 </div>
                                             </div>
                                             <div class="carousel-item">
-                                                <img src="imagenes/libreta-detalle.jpg" class="d-block w-100" alt="Detalle de acabados">
+                                                <img src="imagenes/libreta-detalle.jpg" class="d-block w-100" alt="Detail of finishes">
                                                 <div class="carousel-caption">
-                                                    <h5>Acabados de Lujo</h5>
-                                                    <p>Cada detalle pensado para la perfección</p>
+                                                    <h5>Luxury Finishes</h5>
+                                                    <p>Every detail designed for perfection</p>
                                                 </div>
                                             </div>
                                         </div>
                                         <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
                                             <span class="carousel-control-prev-icon"></span>
-                                            <span class="visually-hidden">Anterior</span>
+                                            <span class="visually-hidden">Previous</span>
                                         </button>
                                         <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
                                             <span class="carousel-control-next-icon"></span>
-                                            <span class="visually-hidden">Siguiente</span>
+                                            <span class="visually-hidden">Next</span>
                                         </button>
                                     </div>
                                 </div>
@@ -143,27 +144,108 @@
 
         <section id="features" class="py-5">
             <div class="container">
-                <h2 class="features-title text-center" data-aos="fade-up">¿Por qué Notta Di Vitta?</h2>
+                <h2 class="section-title text-center" data-aos="fade-up">Why Choose Notta Di Vitta?</h2>
                 <div class="row">
                     <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="feature-card text-center">
                             <i class="bi bi-gem feature-icon"></i>
-                            <h5 class="feature-title">Calidad Premium</h5>
-                            <p class="feature-text">Papel de alta calidad y encuadernación resistente para una experiencia de escritura excepcional que perdura en el tiempo.</p>
+                            <h5 class="feature-title">Premium Quality</h5>
+                            <p class="feature-text">High-quality recycled paper and durable binding for an exceptional writing experience that lasts over time.</p>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="feature-card text-center">
-                            <i class="bi bi-palette feature-icon"></i>
-                            <h5 class="feature-title">Diseño Elegante</h5>
-                            <p class="feature-text">Diseño minimalista y sofisticado que combina funcionalidad con estética, perfecto para cualquier ocasión.</p>
+                            <i class="bi bi-recycle feature-icon"></i>
+                            <h5 class="feature-title">Eco-Friendly</h5>
+                            <p class="feature-text">Made with recycled materials and duplex board covers, combining sustainability with functionality.</p>
                         </div>
                     </div>
                     <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="feature-card text-center">
-                            <i class="bi bi-heart feature-icon"></i>
-                            <h5 class="feature-title">Hecho con Pasión</h5>
-                            <p class="feature-text">Cada libreta es creada con dedicación y amor por los detalles, pensando en inspirar tu creatividad diaria.</p>
+                            <i class="bi bi-grid-3x3-gap feature-icon"></i>
+                            <h5 class="feature-title">Dotted Design</h5>
+                            <p class="feature-text">Versatile dotted pages perfect for writing, sketching, planning, and organizing your ideas creatively.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="company" class="py-5">
+            <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">About Notta Di Vitta</h2>
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div class="company-info">
+                            <h3>Our Mission</h3>
+                            <p>To become the leading brand in premium-quality notepads that empower creativity, foster organization, and celebrate individuality on a global scale. We are committed to providing thoughtfully designed products that support self-expression and innovation in everyday life.</p>
+                            
+                            <h3>Our Vision</h3>
+                            <p>To lead the industry in the design and production of durable, sustainable, and functional notepads that not only enhance productivity but also inspire creativity.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="quality-policies">
+                            <h3>Quality Commitment</h3>
+                            <ul class="quality-list">
+                                <li><i class="bi bi-check-circle me-2"></i>High-quality thick paper and sturdy eco-friendly cardboard covers</li>
+                                <li><i class="bi bi-check-circle me-2"></i>Rigorous quality control standards throughout production</li>
+                                <li><i class="bi bi-check-circle me-2"></i>Continuous improvement in materials and manufacturing techniques</li>
+                                <li><i class="bi bi-check-circle me-2"></i>Exceeding customer expectations and meeting market demands</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="specifications" class="py-5">
+            <div class="container">
+                <h2 class="section-title text-center" data-aos="fade-up">Technical Specifications</h2>
+                <div class="row">
+                    <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="spec-card">
+                            <div class="spec-header">
+                                <i class="bi bi-file-text spec-icon"></i>
+                                <h4>Paper Sheets</h4>
+                            </div>
+                            <ul class="spec-list">
+                                <li><strong>Type:</strong> White recycled paper</li>
+                                <li><strong>Size:</strong> 9.75 x 12.97 cm</li>
+                                <li><strong>Format:</strong> Dotted sheets</li>
+                                <li><strong>Quantity:</strong> 25 sheets per notebook</li>
+                                <li><strong>Perforations:</strong> 11 holes for spiral binding</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="spec-card">
+                            <div class="spec-header">
+                                <i class="bi bi-gear spec-icon"></i>
+                                <h4>Metal Spiral</h4>
+                            </div>
+                            <ul class="spec-list">
+                                <li><strong>Material:</strong> Metallic wire</li>
+                                <li><strong>Type:</strong> Continuous spiral</li>
+                                <li><strong>Capacity:</strong> Up to 30 sheets</li>
+                                <li><strong>Color:</strong> Metallic black</li>
+                                <li><strong>Feature:</strong> Allows 360° rotation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="spec-card">
+                            <div class="spec-header">
+                                <i class="bi bi-shield-check spec-icon"></i>
+                                <h4>Cover</h4>
+                            </div>
+                            <ul class="spec-list">
+                                <li><strong>Material:</strong> Duplex board</li>
+                                <li><strong>Size:</strong> 9.75 x 12.97 cm</li>
+                                <li><strong>Thickness:</strong> 1.5 mm</li>
+                                <li><strong>Finish:</strong> White coated / Brown uncoated</li>
+                                <li><strong>Properties:</strong> Rigid & recyclable</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -173,12 +255,15 @@
 
     <footer class="text-center">
         <div class="container">
-            <p class="mb-3">&copy; 2025 Notta Di Vitta. Todos los derechos reservados.</p>
-            <div class="social-icons">
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Notta Di Vitta S.A.S.</h5>
+                    <p class="mb-0">Designing premium notepads that inspire creativity and organization.</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Notta Di Vitta. All rights reserved.</p>
+                    <small>Made with passion for great ideas.</small>
+                </div>
             </div>
         </div>
     </footer>
