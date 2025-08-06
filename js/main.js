@@ -22,7 +22,7 @@ function createParticles() {
 }
 
 // Three.js setup for 3D model with mobile optimizations
-let scene, camera, renderer, notebook, controls;
+let scene, camera, renderer, notepad, controls;
 let isMobile = window.innerWidth <= 768;
 
 function init3D() {
@@ -71,11 +71,11 @@ function init3D() {
 // Optimized function to load multiple STL files
 function loadSTLModel() {
     const loader = new THREE.STLLoader();
-    const notebookGroup = new THREE.Group();
+    const notepadGroup = new THREE.Group();
     let loadedParts = 0;
     const totalParts = 2;
     
-    // Load main notebook
+    // Load main notepad
     loader.load(
         '3D/notepad-libreta.STL',
         function (geometry) {
@@ -90,23 +90,23 @@ function loadSTLModel() {
             geometry.translate(-center.x, -center.y, -center.z);
             
             const libretaMesh = new THREE.Mesh(geometry, libretaMaterial);
-            notebookGroup.add(libretaMesh);
+            notepadGroup.add(libretaMesh);
             
             loadedParts++;
             if (loadedParts === totalParts) {
-                finalizeModelOptimized(notebookGroup);
+                finalizeModelOptimized(notepadGroup);
             }
             
-            console.log('Notebook loaded successfully');
+            console.log('Notepad loaded successfully');
         },
         function (progress) {
             if (progress.total > 0) {
-                console.log('Notebook progress: ', Math.round(progress.loaded / progress.total * 100) + '%');
+                console.log('Notepad progress: ', Math.round(progress.loaded / progress.total * 100) + '%');
             }
         },
         function (error) {
-            console.error('Error loading notebook:', error);
-            createProceduralNotebook();
+            console.error('Error loading notepad:', error);
+            createProceduralNotepad();
         }
     );
     
@@ -126,20 +126,20 @@ function loadSTLModel() {
             
             const resorteMesh = new THREE.Mesh(geometry, resorteMaterial);
             
-            // Position spiral on the left edge of the notebook
-            const libretaBox = notebookGroup.children[0] ? 
-                new THREE.Box3().setFromObject(notebookGroup.children[0]) : 
+            // Position spiral on the left edge of the notepad
+            const libretaBox = notepadGroup.children[0] ? 
+                new THREE.Box3().setFromObject(notepadGroup.children[0]) : 
                 new THREE.Box3();
             
             resorteMesh.position.x = libretaBox.min.x - 0.2;
             resorteMesh.position.y = 0;
             resorteMesh.position.z = 0;
             
-            notebookGroup.add(resorteMesh);
+            notepadGroup.add(resorteMesh);
             
             loadedParts++;
             if (loadedParts === totalParts) {
-                finalizeModelOptimized(notebookGroup);
+                finalizeModelOptimized(notepadGroup);
             }
             
             console.log('Spring loaded and positioned');
@@ -153,7 +153,7 @@ function loadSTLModel() {
             console.error('Error loading spring:', error);
             loadedParts++;
             if (loadedParts >= totalParts) {
-                finalizeModelOptimized(notebookGroup);
+                finalizeModelOptimized(notepadGroup);
             }
         }
     );
@@ -180,17 +180,17 @@ function finalizeModelOptimized(group) {
     group.rotation.x = -Math.PI / 12;
     group.rotation.y = Math.PI / 8;
     
-    notebook = group;
-    scene.add(notebook);
+    notepad = group;
+    scene.add(notepad);
     
     console.log('Optimized complete model - Dimensions:', size);
 }
 
-// Fallback: create procedural notebook
-function createProceduralNotebook() {
-    const notebookGroup = new THREE.Group();
+// Fallback: create procedural notepad
+function createProceduralNotepad() {
+    const notepadGroup = new THREE.Group();
     
-    // Main notebook body
+    // Main notepad body
     const bodyGeometry = new THREE.BoxGeometry(3, 0.3, 4);
     const bodyMaterial = new THREE.MeshLambertMaterial({ 
         color: 0xffffff,
@@ -198,7 +198,7 @@ function createProceduralNotebook() {
         opacity: 0.95
     });
     const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
-    notebookGroup.add(body);
+    notepadGroup.add(body);
     
     // Spiral binding
     const spiralGeometry = new THREE.TorusGeometry(0.05, 0.02, 8, 50); // Reduced segments for performance
@@ -208,7 +208,7 @@ function createProceduralNotebook() {
         const spiral = new THREE.Mesh(spiralGeometry, spiralMaterial);
         spiral.position.set(-1.3, 0.16, -1.5 + (i * 0.2));
         spiral.rotation.x = Math.PI / 2;
-        notebookGroup.add(spiral);
+        noteGroup.add(spiral);
     }
     
     // Logo/Text area (simplified)
@@ -221,7 +221,7 @@ function createProceduralNotebook() {
     const logo = new THREE.Mesh(logoGeometry, logoMaterial);
     logo.position.set(0.3, 0.16, 0.5);
     logo.rotation.x = -Math.PI / 2;
-    notebookGroup.add(logo);
+    notepadGroup.add(logo);
     
     // Add corner triangular fold
     const foldGeometry = new THREE.ConeGeometry(0.3, 0.1, 3);
@@ -229,10 +229,10 @@ function createProceduralNotebook() {
     const fold = new THREE.Mesh(foldGeometry, foldMaterial);
     fold.position.set(1.3, 0.2, -1.8);
     fold.rotation.y = Math.PI / 4;
-    notebookGroup.add(fold);
+    notepadGroup.add(fold);
     
-    notebook = notebookGroup;
-    scene.add(notebook);
+    notepad = notepadGroup;
+    scene.add(notepad);
 }
 
 // Simplified lighting for better performance
@@ -382,15 +382,15 @@ function setupControlsOptimized() {
 function animate() {
     requestAnimationFrame(animate);
     
-    if (notebook) {
+    if (notepad) {
         // Smooth interpolation
         const lerpFactor = isMobile ? 0.08 : 0.12; // Slower on mobile to save battery
         
         window.currentRotationX += (window.targetRotationX - window.currentRotationX) * lerpFactor;
         window.currentRotationY += (window.targetRotationY - window.currentRotationY) * lerpFactor;
         
-        notebook.rotation.x = window.currentRotationX;
-        notebook.rotation.y = window.currentRotationY;
+        notepad.rotation.x = window.currentRotationX;
+        notepad.rotation.y = window.currentRotationY;
         
         // Slower auto-rotation when not interacting
         if (!window.isInteracting) {
